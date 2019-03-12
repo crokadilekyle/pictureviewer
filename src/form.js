@@ -14,10 +14,10 @@ function Form(props){
 
     const containerStyle = {
         display: 'grid',
-        gridTemplateColumns: '500px 300px',
+        gridTemplateColumns: '400px 1fr',
         justifyItems: 'center',
         alignItems: 'center',
-        maxWidth: '900px',
+        maxWidth: '600px',
         margin: '50px auto'
     };
     
@@ -39,7 +39,7 @@ function Form(props){
         return (
         <div className="container" style={containerStyle}>
         <img src={"../images/" + props.stone + ".jpg"} alt="mosiac stepping stone" style={imgStyle}/>
-        <form id='myForm' style={{gridColumnStart: '2', width: '300px', margin: '0 auto'}}>
+        <form id='myForm' style={{gridColumnStart: '2', margin: '0 auto'}}>
             <select id="stones" style={inputStyle} onChange={onStoneChange}>
                 {stoneOptions()}
             </select>
