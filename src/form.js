@@ -3,14 +3,7 @@ import './arrays.js';
 
 
 function Form(props){
-    function stoneOptions(){
-       
-        return props.stones.map(function(stone){
-            return (
-                <option value={stone} key={stone}>{stone}</option>
-            );
-        });
-    }
+    
 
     const containerStyle = {
         display: 'grid',
@@ -30,18 +23,21 @@ function Form(props){
         width: '300px'
     };
 
-    function onStoneChange(e) {
-        console.log('something happened', e.target.value);
+    
+    //function onStoneChange(e) {
+    //    console.log('something happened', e.target.value);
 
-       props.handleStoneChange(e.target.value);
-    }
+   //    props.handleStoneChange(e.target.value);
+   // }
 
         return (
         <div className="container" style={containerStyle}>
-        <img src={"../images/" + props.stone + ".jpg"} alt="mosiac stepping stone" style={imgStyle}/>
+        <img src={`../images/${stone.stone}.jpg`} alt="mosiac stepping stone" style={imgStyle}/>
         <form id='myForm' style={{gridColumnStart: '2', margin: '0 auto'}}>
-            <select id="stones" style={inputStyle} onChange={onStoneChange}>
-                {stoneOptions()}
+            <select onChange={this.handleChange} id="stones" style={inputStyle}>
+               {this.state.stones.map((stone, i) =>
+                <option key={i}>{stone.stone}</option>
+                )}
             </select>
         </form>
     </div>
